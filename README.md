@@ -26,6 +26,7 @@ The behavior policy provides the following core capabilities:
 
     ``` bash
     cd ~/ws_aic/src/aic
+    git clone https://github.com/gsotirchos/my_policy_node.git
     pixi reinstall ros-kilted-aic-my-policy-node
     ```
 
