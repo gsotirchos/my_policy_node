@@ -2,13 +2,7 @@
 
 This directory contains a minimal `MyPolicy` that executes a pure Vision-Language-Action (VLA) control loop using SmolVLA and Real-Time Control (RTC) action queueing.
 
-## Code Structure
-
-- **`MyPolicy.py`**: The sole orchestrator policy. It sets up parameters, loads the `SmolVLA` model, handles GPU inference threading, real-time Action Queue processing, and coordinates the entire execution loop.
-
-## Functionality Available
-
-The behavior policy provides the following core capabilities:
+**`MyPolicy.py`** is the sole orchestrator policy. It sets up parameters, loads the `SmolVLA` model, handles GPU inference threading, real-time Action Queue processing, and coordinates the entire execution loop. The behavior policy provides the following core capabilities:
 
 - **Vision-Language-Action (VLA) Control:** Integrates with `SmolVLA` for visual trajectory generation, utilizing threaded, GPU-accelerated inference.
 - **Real-Time Control (RTC):** Seamlessly merges overlapping trajectory chunks using a latency-aware action queue.
@@ -35,7 +29,7 @@ The behavior policy provides the following core capabilities:
 
 ## How to use
 
-Run the standard `aic_model` command, specifying the unified `MyPolicy` class. You can configure the behavior dynamically by passing ROS arguments via `-p <argument>:=<value>`.
+Run the standard `aic_model` command, specifying the `MyPolicy` class. You can configure the behavior dynamically by passing ROS arguments via `-p <argument>:=<value>`.
 
 To run the default configuration (Pure SmolVLA):
 
