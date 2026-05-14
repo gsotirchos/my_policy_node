@@ -48,7 +48,7 @@ pixi run ros2 run aic_model aic_model --ros-args -p use_sim_time:=true -p policy
 
 ``` bash
 mkdir -p ~/ws_aic/src/ && cd ~/ws_aic/src/
-git clone --recurse-submodules -j8 -b luca/rtc https://github.com/gsotirchos/aic.git
+git clone --recurse-submodules -j8 -b submission-env https://github.com/gsotirchos/aic.git
 ```
 
 2. Clear all `pixi` and *importantly* `docker` build cache:
