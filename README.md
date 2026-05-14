@@ -41,3 +41,39 @@ pixi run ros2 run aic_model aic_model --ros-args -p use_sim_time:=true -p policy
 
 - **`checkpoint_path`**: Absolute path to the SmolVLA model weights (default: `my_policy_node/my_policy_node/model/`).
 - **`vla_chunk_size_threshold`** (`float`, default: `0.9`): Buffer fullness ratio that triggers inference yielding.
+
+## How to prepare the submission container
+
+1. Clone the `submission-env` branch of the `aic` repository, which contains this one as a _submodule_:
+
+``` bash
+mkdir -p ~/ws_aic/src/ && cd ~/ws_aic/src/
+git clone --recurse-submodules -j8 -b luca/rtc https://github.com/gsotirchos/aic.git
+```
+
+2. Clear all `pixi` and *importantly* `docker` build cache:
+
+``` bash
+rm -rf ./.pixi
+rm -rf ~/.cache/rattler
+docker builder prune --filter type=exec.cachemount
+```
+
+3. Fix the pixi version with:
+
+``` bash
+pixi self-update --version 0.67.2
+```
+
+4. Install the workspace:
+
+``` bash
+pixi install
+```
+
+5. Build the image and verify it locally:
+
+``` bash
+docker compose -f docker/docker-compose.yaml build model
+docker compose -f docker/docker-compose.yaml up
+```
